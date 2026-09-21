@@ -1,0 +1,20 @@
+[package]
+name = "glycin-thumbnailer"
+publish = false
+version.workspace = true
+authors.workspace = true
+description.workspace = true
+license.workspace = true
+homepage.workspace = true
+repository.workspace = true
+edition.workspace = true
+rust-version.workspace = true
+
+[dependencies]
+gio.workspace = true
+gly.workspace = true
+image.workspace = true
+png.workspace = true
+
+[lints]
+workspace = true

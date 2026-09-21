@@ -1,0 +1,36 @@
+[package]
+name = "benches"
+version.workspace = true
+authors.workspace = true
+license.workspace = true
+edition.workspace = true
+rust-version.workspace = true
+publish = false
+
+[dev-dependencies]
+async-io.workspace = true
+criterion.workspace = true
+gdk-pixbuf.workspace = true
+gio.workspace = true
+glib.workspace = true
+glycin = { workspace = true, features = ["async-io"] }
+glycin-thumbnailer.workspace = true
+glycin-utils.workspace = true
+
+[lints]
+workspace = true
+
+[[bench]]
+name = "loader"
+harness = false
+path = "bench-loader.rs"
+
+[[bench]]
+name = "thumbnailer"
+harness = false
+path = "bench-thumbnailer.rs"
+
+[[bench]]
+name = "utils"
+harness = false
+path = "bench-utils.rs"

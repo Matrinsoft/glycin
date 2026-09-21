@@ -1,0 +1,17 @@
+[package]
+name = "gufo-svg"
+description = "Extract XMP metadata data from SVGs"
+version.workspace = true
+license.workspace = true
+edition.workspace = true
+rust-version.workspace = true
+repository.workspace = true
+
+[dependencies]
+gufo-common.workspace = true
+memchr.workspace = true
+thiserror.workspace = true
+xml.workspace = true
+
+[lints]
+workspace = true

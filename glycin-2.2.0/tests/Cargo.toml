@@ -1,0 +1,59 @@
+[package]
+name = "tests"
+publish = false
+license.workspace = true
+
+version.workspace = true
+edition.workspace = true
+rust-version.workspace = true
+
+[features]
+default = ["async-io", "external-loaders"]
+async-io = ["glycin-core/async-io", "glycin-utils/async-io", "zbus/async-io"]
+tokio = ["glycin-core/tokio", "glycin-utils/tokio", "zbus/tokio"]
+
+external-loaders = ["glycin-core/external"]
+builtin-loaders = ["glycin-core/builtin-image-rs", "glycin-core/builtin-test"]
+combined-loaders = ["builtin-loaders", "external-loaders"]
+
+[dev-dependencies]
+async-io.workspace = true
+blocking.workspace = true
+glycin-core = { workspace = true, features = ["gdk4"] }
+glycin-utils = { workspace = true, features = ["loader-utils"] }
+gio.workspace = true
+tokio.workspace = true
+gdk.workspace = true
+zbus = { workspace = true, features = ["p2p"] }
+tracing-subscriber.workspace = true
+# The unmaintained serde_yaml 0.9 crate should work here as well
+# serde_yaml = "0.9.33"
+serde_yaml = { package = "serde_yaml_ng", version = "0.10.0" }
+futures-util.workspace = true
+
+[[test]]
+name = "change_memory_format"
+path = "change_memory_format.rs"
+
+[[test]]
+name = "dbus_api_stability"
+path = "dbus_api_stability.rs"
+
+[[test]]
+name = "glycin-test"
+path = "glycin-test.rs"
+
+[[test]]
+name = "processor-creator"
+path = "processor-creator.rs"
+
+[[test]]
+name = "processor-editor"
+path = "processor-editor.rs"
+
+[[test]]
+name = "processor-loader"
+path = "processor-loader.rs"
+
+[dependencies]
+gufo-common.workspace = true
